@@ -15,7 +15,7 @@ module.exports = function (env) {
     output: {
       filename: '[name].js',
       library: 'GoogleMapsLoader',
-      libraryTarget: 'var',
+      libraryTarget: 'umd',
       path: path.resolve(process.cwd(), 'dist'),
     },
 

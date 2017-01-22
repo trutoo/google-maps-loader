@@ -2,6 +2,8 @@ import { Promise } from 'es6-promise';
 
 export default class GoogleMapsLoader {
 
+  private static instance: GoogleMapsLoader;
+
   static URL = 'https://maps.googleapis.com/maps/api/js';
   static KEY = null;
   static LIBRARIES = [];
@@ -27,6 +29,21 @@ export default class GoogleMapsLoader {
     private _region = GoogleMapsLoader.KEY,
     private _version = GoogleMapsLoader.VERSION,
   ) { }
+
+  public static getInstance(
+    key = GoogleMapsLoader.KEY,
+    libraries = GoogleMapsLoader.LIBRARIES,
+    client = GoogleMapsLoader.CLIENT,
+    channel = GoogleMapsLoader.CHANNEL,
+    language = GoogleMapsLoader.LANGUAGE,
+    region = GoogleMapsLoader.KEY,
+    version = GoogleMapsLoader.VERSION,
+  ) {
+    if (!GoogleMapsLoader.instance) {
+      GoogleMapsLoader.instance = new GoogleMapsLoader(key, libraries, client, channel, language, region, version);
+    }
+    return GoogleMapsLoader.instance;
+  }
 
   public isLoaded(): boolean {
     return typeof this.google === 'object' && typeof this.google.maps === 'object';

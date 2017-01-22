@@ -1,5 +1,14 @@
-var GoogleMapsLoader =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["GoogleMapsLoader"] = factory();
+	else
+		root["GoogleMapsLoader"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -1472,6 +1481,19 @@ var GoogleMapsLoader = (function () {
         this._version = _version;
         this._script = null;
     }
+    GoogleMapsLoader.getInstance = function (key, libraries, client, channel, language, region, version) {
+        if (key === void 0) { key = GoogleMapsLoader.KEY; }
+        if (libraries === void 0) { libraries = GoogleMapsLoader.LIBRARIES; }
+        if (client === void 0) { client = GoogleMapsLoader.CLIENT; }
+        if (channel === void 0) { channel = GoogleMapsLoader.CHANNEL; }
+        if (language === void 0) { language = GoogleMapsLoader.LANGUAGE; }
+        if (region === void 0) { region = GoogleMapsLoader.KEY; }
+        if (version === void 0) { version = GoogleMapsLoader.VERSION; }
+        if (!GoogleMapsLoader.instance) {
+            GoogleMapsLoader.instance = new GoogleMapsLoader(key, libraries, client, channel, language, region, version);
+        }
+        return GoogleMapsLoader.instance;
+    };
     GoogleMapsLoader.prototype.isLoaded = function () {
         return typeof this.google === 'object' && typeof this.google.maps === 'object';
     };
@@ -1647,3 +1669,4 @@ exports.default = GoogleMapsLoader;
 
 /***/ }
 /******/ ]);
+});

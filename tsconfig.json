@@ -3,6 +3,8 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "dist",
     "sourceMap": false,
     "removeComments": false,
     "suppressImplicitAnyIndexErrors": true,
