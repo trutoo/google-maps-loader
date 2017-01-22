@@ -1,0 +1,39 @@
+{
+  "name": "google-maps-loader",
+  "description": "Wrapper for asynchronously loading Google Maps API",
+  "version": "0.1.0",
+  "author": {
+    "name": "Erik Hughes",
+    "email": "erik.hughes@trutoo.com"
+  },
+  "keywords": [
+    "google",
+    "maps",
+    "asynchronous",
+    "browser",
+    "loader"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:trutoo/GoogleMapsLoader.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  },
+  "main": "./dist/google-maps-loader.js",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.0-beta.17",
+    "typedoc": "^0.5.1",
+    "typedoc-webpack-plugin": "^1.1.3",
+    "typescript": "^2.1.4",
+    "webpack": "^2.2.0-rc.1"
+  },
+  "scripts": {
+    "start": "webpack"
+  },
+  "dependencies": {
+    "@types/es6-promise": "0.0.32",
+    "es6-promise": "^4.0.5"
+  }
+}
